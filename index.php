@@ -13,6 +13,10 @@ require_once('lib/db.php');
 $result=query($pdo, 'SELECT cars.ID,cars.year,cars.make,cars.model,cars.miles, cars.price, cars.userID,
 users.first_name,users.last_name FROM cars JOIN users ON users.ID = cars.userID');
 
+//$result=query($pdo, 'SELECT cars.ID,cars.year,cars.make,cars.model,cars.miles, cars.price,cars.locationID,locations.city,
+//locations.state,locations.zip, cars.userID, users.first_name,users.last_name FROM cars JOIN locations ON locations.ID = cars.locationID
+//JOIN users ON users.ID = cars.userID');
+
 require_once('theme/header.php');
 ?>
 		<h2>Home</h2>
@@ -21,12 +25,13 @@ require_once('theme/header.php');
 		<td><b>Make</b></td>
 		<td><b>Model</b></td>
 		<td><b>Price</b></td>
+		<td><b>Location</b></td>
 		<td><b>Owner</b></td>
 		<?php
 		while($car=$result->fetch()) {
 			echo '<tr>';
 			echo '<td>'.$car['year'].'</td><td>'.$car['make'].'</td><td>'.$car['model'].'</td><td>$'.$car['price'].'.00</td>
-				  <td>'.$car['first_name'].' '.$car['last_name'].'</td>';
+				  <td></td><td>'.$car['first_name'].' '.$car['last_name'].'</td>';
 			
 			echo '<td>
 				<a href="cars/details.php?id='.$car['ID'].'">Details </a>';

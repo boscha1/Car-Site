@@ -12,8 +12,5 @@ if ($_SESSION['user/role'] == 0 && $_SESSION['user/ID'] != $userID)
 	die('Authorization notice: You can only delete your own car');
 
 $result = query($pdo, 'DELETE FROM cars WHERE ID=?',[$_GET['id']]);
-header('location:index.php');
-
-require_once('../theme/header.php');
-require_once('../theme/footer.php');
+die('record deleted');
 ?>

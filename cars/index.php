@@ -28,8 +28,8 @@ require_once('../theme/header.php');
 				<a href="cars/details.php?id='.$car['ID'].'">Details </a>';
 				
 			if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $car['userID']))
-				echo '<a href="cars/delete.php?id='.$car['ID'].'">Delete</a>
-				  <a href="cars/modify.php?id='.$car['ID'].'">Edit</a>';
+				echo '<button class="btn btn-danger" id="btn-post-delete" data-id="'.$car['ID'].'">Delete</button>
+					  <a href="cars/modify.php?id='.$car['ID'].'">Edit</a>';
 			'</td>';
 			echo '</tr>';
 		}

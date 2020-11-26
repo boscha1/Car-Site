@@ -2,9 +2,11 @@
 require_once('../settings.php');
 require_once('../lib/db.php');
 
-$result = query($pdo, 'SELECT * FROM cars WHERE ID=?',[$_GET['id']]);
-$seller=query($pdo, 'SELECT cars.ID,cars.year,cars.make,cars.model,cars.miles, cars.price, cars.userID,
-users.first_name,users.last_name FROM cars JOIN users ON users.ID = cars.userID');
+//$result = query($pdo, 'SELECT * FROM cars WHERE ID=?',[$_GET['id']]);
+
+$result = query($pdo, 'SELECT cars.ID,cars.year,cars.make,cars.model,cars.miles, cars.price, cars.userID,
+users.first_name,users.last_name, users.email FROM cars JOIN users ON users.ID = cars.userID WHERE cars.ID = ?', [$_GET['id']]);
+
 $car = $result->fetch();
 //header('location:organizers_index.php');
 require_once('../theme/header.php');
@@ -37,7 +39,7 @@ require_once('../theme/header.php');
 		  </div>
 		  <div class="form-group">
 			<label>Contact seller:</label>
-			<a href="<?= $seller['first_name'] ?>"
+			<a href="mailto:<?= $car['email'] ?>?subject=Interest in <?= $car['year'].' '.$car['make'].' '.$car['model'] ?>"><?= $car['email'] ?></a>
 		  </div>
 	</div>
 	

@@ -17,6 +17,7 @@ if (!isset($_SESSION['user/ID']))
 
 
 if(count($_POST)>0) {
+	$email = $_POST['email'];
 	
 	if (isset($_POST['submit'])) {
 		if (empty($_POST['first_name'])) {
@@ -30,6 +31,9 @@ if(count($_POST)>0) {
 		}
 		elseif (empty($_POST['password'])) {
 			die('Please enter password');
+		}
+		elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			die("$email is not a valid email address");
 		}
 		else {
 			query($pdo, 'INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)',

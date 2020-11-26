@@ -2,15 +2,43 @@
 require_once('../settings.php');
 require_once('../lib/db.php');
 
+// define variables and set to empty values
+$firstName = $lastName = $email = "";
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
 if (!isset($_SESSION['user/ID'])) 
 	die('Please <a href="../signin.php">sign in</a> first');
 
-// if info is in POST, execute query
+
 if(count($_POST)>0) {
-	query($pdo, 'INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)',
-	[$_POST['first_name'],$_POST['last_name'],$_POST['email'],password_hash($_POST['password'], PASSWORD_DEFAULT)]);
-	header('location:index.php');
+	
+	if (isset($_POST['submit'])) {
+		if (empty($_POST['first_name'])) {
+			die('Please enter first name');
+		}
+		elseif (empty($_POST['last_name'])) {
+			die('Please enter last name');
+		}
+		elseif (empty($_POST['email'])) {
+			die('Please enter email');
+		}
+		elseif (empty($_POST['password'])) {
+			die('Please enter password');
+		}
+		else {
+			query($pdo, 'INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)',
+			[$_POST["first_name"],$_POST["last_name"],$_POST["email"],password_hash($_POST['password'], PASSWORD_DEFAULT)]);
+			header('location:index.php');
+		}
+	}
 }
+
 require_once('../theme/header.php');
 ?>
 	<div class="container">
@@ -33,7 +61,7 @@ require_once('../theme/header.php');
 			<label>Password</label>
 			<input type="password" class="form-control" name="password">
 		  </div>
-		  <button type="submit" class="btn btn-primary">Submit</button>
+		  <button type="submit" class="btn btn-primary" name="submit">Submit</button>
 		</form>
 	</div>
 

@@ -6,8 +6,8 @@ if (!isset($_SESSION['user/ID']))
 	die('Please <a href="../signin.php">sign in</a> first');
 // if info is in POST, execute query
 if(count($_POST)>0) {
-	query($pdo, 'INSERT INTO cars (make, model, year, miles, price, userID) VALUES (?,?,?,?,?,?)',
-	[$_POST['make'],$_POST['model'],$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID']]);
+	query($pdo, 'INSERT INTO cars (make, model, year, miles, price, userID, state_code) VALUES (?,?,?,?,?,?,?)',
+	[$_POST['make'],$_POST['model'],$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID'],$_POST['state_code']]);
 	header('location:index.php');
 }
 require_once('../theme/header.php');
@@ -35,6 +35,17 @@ require_once('../theme/header.php');
 		  <div class="form-group">
 			<label>Price</label>
 			<input type="text" class="form-control" name="price">
+		  </div>
+		  <div class="form-group">
+		  <label>State</label>
+			<select name="state_code">
+			<option value="">Select state</option>
+				<?php
+					$states = query($pdo, 'SELECT * FROM states');
+					while($state=$states->fetch()) 
+						echo '<option value="'.$state['state_name'].'</option>';
+				?>
+			</select>
 		  </div>
 		  <button type="submit" class="btn btn-primary">Submit</button>
 		</form>

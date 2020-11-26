@@ -1,38 +1,28 @@
 <?php
+require_once('../settings.php');
+require_once('../lib/db.php');
 
-$firstnameErr = $lastnameErr = $emailErr = $passwordErr = "";
-$firstname = $lastname = $email = $password = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	if (empty($_POST["first_name"])) {
-		$firstnameErr = "Name is required";
+function validate_carInfo($query_to_execute) {
+	if (empty($_POST['make'])) {
+			die('Please enter the make');
+	}
+	elseif (empty($_POST['model'])) {
+		die('Please enter the model');
+	}
+	elseif (empty($_POST['year'])) {
+		die('Please enter the year');
+	}
+	elseif (empty($_POST['miles'])) {
+		die('Please enter amount of miles');
+	}
+	elseif (empty($_POST['price'])) {
+		die('Please enter a price');
+	}
+	elseif (!is_numeric($_POST['year']) || count($_POST['year']) > 4) {
+		die('Please enter a valid year');
 	}
 	else {
-		$firstname = test_input($_POST["first_name"]);
-		// check if name only contains letters and whitespace
-		if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) {
-			$firstnameErr = "Only letters and white space allowed";
-		}
+		$query_to_execute;
+		header('location:index.php');
 	}
-	
-	if (empty($_POST["last_name"])) {
-		$lastnameErr = "Last name is required";
-	}
-	else {
-		$lastname = test_input($_POST["last_name"]);
-		// check if name only contains letters and whitespace
-		if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) {
-			$lastnameErr = "Only letters and white space allowed";
-		}
-	}
-	
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-  
-  
+}	

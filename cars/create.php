@@ -4,12 +4,36 @@ require_once('../lib/db.php');
 
 if (!isset($_SESSION['user/ID'])) 
 	die('Please <a href="../signin.php">sign in</a> first');
+
 // if info is in POST, execute query
 if(count($_POST)>0) {
-	query($pdo, 'INSERT INTO cars (make, model, year, miles, price, userID, state_code) VALUES (?,?,?,?,?,?,?)',
-	[$_POST['make'],$_POST['model'],$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID'],$_POST['state_code']]);
-	header('location:index.php');
+	if (isset($_POST['submit'])) {
+		if (empty($_POST['make'])) {
+			die('Please enter the make');
+		}
+		elseif (empty($_POST['model'])) {
+			die('Please enter the model');
+		}
+		elseif (empty($_POST['year'])) {
+			die('Please enter the year');
+		}
+		elseif (empty($_POST['miles'])) {
+			die('Please enter amount of miles');
+		}
+		elseif (empty($_POST['price'])) {
+			die('Please enter a price');
+		}
+		elseif (!is_numeric($_POST['year'])) {
+			die('Please enter a valid year');
+		}
+		else {
+			query($pdo, 'INSERT INTO cars (make, model, year, miles, price, userID) VALUES (?,?,?,?,?,?)',
+			[$_POST['make'],$_POST['model'],$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID']]);
+			header('location:index.php');
+		}
+	}
 }
+
 require_once('../theme/header.php');
 ?>
 	<div class="container">
@@ -25,29 +49,18 @@ require_once('../theme/header.php');
 			<input type="text" class="form-control" name="model">
 		  </div>
 		  <div class="form-group">
-			<label>Year</label>
+			<label>Year (e.g, YYYY)</label>
 			<input type="text" class="form-control" name="year">
 		  </div>
 	      <div class="form-group">
-			<label>Miles</label>
+			<label>Miles (e.g, 19000)</label>
 			<input type="text" class="form-control" name="miles">
 		  </div>
 		  <div class="form-group">
-			<label>Price</label>
+			<label>Price (e.g, 10000)</label>
 			<input type="text" class="form-control" name="price">
 		  </div>
-		  <div class="form-group">
-		  <label>State</label>
-			<select name="state_code">
-			<option value="">Select state</option>
-				<?php
-					$states = query($pdo, 'SELECT * FROM states');
-					while($state=$states->fetch()) 
-						echo '<option value="'.$state['state_name'].'</option>';
-				?>
-			</select>
-		  </div>
-		  <button type="submit" class="btn btn-primary">Submit</button>
+		  <button type="submit" class="btn btn-primary" name="submit">Submit</button>
 		</form>
 	</div>
 

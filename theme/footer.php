@@ -1,9 +1,17 @@
 </div>
 	<script src="jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 	<script>
-		$(document).on('click','#btn-post-delete',function(){
+		$(document).on('click','.btn-post-delete',function(){
 			var el=$(this);
 			$.get('cars/delete.php?id='+$(this).attr('data-id'), function(data, status){
+				console.log(data);
+				el.parents('tr').remove();
+			});
+		});
+		
+		$(document).on('click','.btn-post-delete',function(){
+			var el=$(this);
+			$.get('sellers/delete.php?id='+$(this).attr('data-id'), function(data, status){
 				console.log(data);
 				el.parents('tr').remove();
 			});

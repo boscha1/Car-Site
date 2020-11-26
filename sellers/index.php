@@ -21,7 +21,7 @@ require_once('../theme/header.php');
 				<a href="sellers/details.php?id='.$user['ID'].'">Details </a>';
 				
 			if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $user['ID'])) 
-				echo '<a href="sellers/delete.php?id='.$user['ID'].'">Delete</a>
+				echo '<button class="btn-post-delete btn btn-danger" data-id="'.$user['ID'].'">Delete</button>
 				  <a href="sellers/modify.php?id='.$user['ID'].'">Edit</a>';
 			'</td>';
 			echo '</tr>';

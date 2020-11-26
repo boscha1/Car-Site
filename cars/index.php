@@ -25,11 +25,11 @@ require_once('../theme/header.php');
 				  <td>'.$car['first_name'].' '.$car['last_name'].'</td>';
 			
 			echo '<td>
-				<a href="cars/details.php?id='.$car['ID'].'">Details </a>';
+				<a class="btn btn-secondary" href="cars/details.php?id='.$car['ID'].'">Details </a>';
 				
 			if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $car['userID']))
-				echo '<button class="btn btn-danger" id="btn-post-delete" data-id="'.$car['ID'].'">Delete</button>
-					  <a href="cars/modify.php?id='.$car['ID'].'">Edit</a>';
+				echo '<button class="btn-post-delete btn btn-danger" data-id="'.$car['ID'].'">Delete</button>
+					  <a class="btn btn-warning" href="cars/modify.php?id='.$car['ID'].'">Edit</a>';
 			'</td>';
 			echo '</tr>';
 		}

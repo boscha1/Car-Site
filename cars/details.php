@@ -16,7 +16,6 @@ require_once('../theme/header.php');
 		<h2>Car Details:</h2>
 		<a class="btn btn-secondary" href="cars/index.php">Back to cars</a>
 		<a class="btn btn-warning" href="cars/modify.php?id=<?= $car['ID'] ?>">Edit Car Info</a>
-		<a class="btn btn-danger" href="cars/delete.php?id=<?= $car['ID'] ?>">Delete Car Info</a>
 		  <div class="form-group">
 			<label>Make:</label>
 			<?= $car['make'] ?>

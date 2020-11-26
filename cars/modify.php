@@ -7,9 +7,31 @@ if (!isset($_SESSION['user/ID']))
 
 // if info is in POST, execute query
 if(count($_POST)>0) {
-	query($pdo, 'UPDATE cars SET make=?, model=?, year=?, miles=?, price=? WHERE ID=?',
-	[$_POST['make'],$_POST['model'],$_POST['year'],$_POST['miles'],$_POST['price'],$_POST['ID']]);
-	header('location:index.php');
+	if (isset($_POST['submit'])) {
+		if (empty($_POST['make'])) {
+			die('Please enter the make');
+		}
+		elseif (empty($_POST['model'])) {
+			die('Please enter the model');
+		}
+		elseif (empty($_POST['year'])) {
+			die('Please enter the year');
+		}
+		elseif (empty($_POST['miles'])) {
+			die('Please enter amount of miles');
+		}
+		elseif (empty($_POST['price'])) {
+			die('Please enter a price');
+		}
+		elseif (!is_numeric($_POST['year'])) {
+			die('Please enter a valid year');
+		}
+		else {
+			query($pdo, 'UPDATE cars SET make=?, model=?, year=?, miles=?, price=? WHERE ID=?',
+			[$_POST['make'],$_POST['model'],$_POST['year'],$_POST['miles'],$_POST['price'],$_POST['ID']]);
+			header('location:index.php');
+		}
+	}
 }
 else{
 	$result = query($pdo, 'SELECT * FROM cars WHERE cars.ID=?',[$_GET['id']]);
@@ -34,19 +56,19 @@ require_once('../theme/header.php');
 			<input type="text" class="form-control" name="model" value="<?= $car['model'] ?>">
 		  </div>
 		  <div class="form-group">
-			<label>Year</label>
+			<label>Year (e.g, YYYY)</label>
 			<input type="text" class="form-control" name="year" value="<?= $car['year'] ?>">
 		  </div>
 	      <div class="form-group">
-			<label>Miles</label>
+			<label>Miles (e.g, 19000)</label>
 			<input type="text" class="form-control" name="miles" value="<?= $car['miles'] ?>">
 		  </div>
 		  <div class="form-group">
-			<label>Price</label>
+			<label>Price (e.g, 10000)</label>
 			<input type="text" class="form-control" name="price" value="<?= $car['price'] ?>">
 		  </div>
 			<input type="hidden" class="form-control" name="ID" value="<?= $car['ID'] ?>">
-		  <button type="submit" class="btn btn-primary">Submit</button>
+		  <button type="submit" class="btn btn-primary" name="submit">Save changes</button>
 		</form>
 	</div>
     <!-- Optional JavaScript -->

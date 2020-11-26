@@ -37,10 +37,15 @@ require_once('../theme/header.php');
 			<label>Price:</label>
 			$<?= $car['price'] ?>
 		  </div>
-		  <div class="form-group">
-			<label>Contact seller:</label>
-			<a href="mailto:<?= $car['email'] ?>?subject=Interest in <?= $car['year'].' '.$car['make'].' '.$car['model'] ?>"><?= $car['email'] ?></a>
-		  </div>
+		  <?php
+		  if(isset($_SESSION['user/ID'])) {
+			  echo '<div class="form-group">
+						<label>Contact seller:</label>
+						<a href="mailto:'.$car['email'].'?subject=Interest in '.$car['year'].' '.$car['make'].' '.$car['model'].'">'.$car['email'].'</a>
+					</div>';
+		  }
+		  ?>
+		  
 	</div>
 	
 <?php

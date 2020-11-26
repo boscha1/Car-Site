@@ -24,10 +24,14 @@ require_once('../theme/header.php');
 			<label>Last name:</label>
 			<?= $user['last_name'] ?>
 		  </div>
-		  <div class="form-group">
-			<label>Email:</label>
-			<?= $user['email'] ?>
-		  </div>
+		  <?php
+		  if(isset($_SESSION['user/ID'])) {
+		  echo '<div class="form-group">
+					<label>Email:</label>
+					<a href="mailto:'.$user['email'].'">'.$user['email'].'</a>
+				</div>';
+		  }
+		  ?>
 		<h2>Cars for sale by <?= $user['first_name'].' '.$user['last_name'] ?></h2>
 		<table class="table responsive">
 		<td><b>Year</b></td>

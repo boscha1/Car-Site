@@ -1,7 +1,7 @@
 </div>
 	<script src="jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 	<script>
-		$(document).on('click','.btn-post-delete',function(){
+		$(document).on('click','.btn-car-delete',function(){
 			var el=$(this);
 			$.get('cars/delete.php?id='+$(this).attr('data-id'), function(data, status){
 				console.log(data);
@@ -9,7 +9,7 @@
 			});
 		});
 		
-		$(document).on('click','.btn-post-delete',function(){
+		$(document).on('click','.btn-seller-delete',function(){
 			var el=$(this);
 			$.get('sellers/delete.php?id='+$(this).attr('data-id'), function(data, status){
 				console.log(data);
@@ -17,11 +17,20 @@
 			});
 		});
 		
-		$(document).on('submit', 'form#post-modify', function(e){
+		$(document).on('submit', '#car-modify', function(e){
 			e.preventDefault();
-			$.post("cars/modify.php",{ID:$('#post-modify input[name=ID]').val(),make:$('#post-modify input[name=make]').val(),
-			model:$('#post-modify input[name=model]').val(),year:$('#post-modify input[name=year]').val(),miles:$('#post-modify input[name=miles]').val(),
-			price:$('#post-modify input[name=price]').val()}).done(function( data ) {
+			$.post("cars/modify.php",{ID:$('#car-modify input[name=ID]').val(),make:$('#car-modify input[name=make]').val(),
+			model:$('#car-modify input[name=model]').val(),year:$('#car-modify input[name=year]').val(),miles:$('#car-modify input[name=miles]').val(),
+			price:$('#car-modify input[name=price]').val()}).done(function( data ) {
+				alert(" Data loaded: " + data);
+			});
+		});
+		
+		$(document).on('submit', '#seller-modify', function(e){
+			e.preventDefault();
+			$.post("sellers/modify.php",{ID:$('#seller-modify input[name=ID]').val(),first_name:$('#seller-modify input[name=first_name]').val(),
+			last_name:$('#seller-modify input[name=last_name]').val(),email:$('#seller-modify input[name=email]').val(),
+			password:$('#seller-modify input[name=password]').val()}).done(function( data ) {
 				alert(" Data loaded: " + data);
 			});
 		});

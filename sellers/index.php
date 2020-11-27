@@ -22,7 +22,7 @@ require_once('../theme/header.php');
 			echo '<a class="btn btn-secondary" href="sellers/details.php?id='.$user['ID'].'">Details </a>';
 				
 			if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $user['ID'])) {
-				echo '<button class="btn-post-delete btn btn-danger" data-id="'.$user['ID'].'">Delete</button>';
+				echo '<button class="btn-seller-delete btn btn-danger" data-id="'.$user['ID'].'">Delete</button>';
 				echo '<a class="btn btn-warning" href="sellers/modify.php?id='.$user['ID'].'">Edit</a>';
 			}
 			echo '</div>';

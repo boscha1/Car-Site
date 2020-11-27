@@ -43,7 +43,7 @@ require_once('../theme/header.php');
 	<div class="container">
 		<h2>Modify the details of your car below:</h2>
 		<a class="btn btn-secondary" href="cars/index.php">Back to cars</a>
-		<form id="post-modify" method="POST">
+		<form id="car-modify" method="POST">
 		  <div class="form-group">
 			<label>Make</label>
 			<input type="text" class="form-control" name="make" value="<?= $car['make'] ?>">

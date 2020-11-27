@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 if(count($_POST) > 0 && isset($_POST['action']{0})){
 	if($_POST['action'] == 'signup') 
 		signup();

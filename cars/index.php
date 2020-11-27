@@ -18,19 +18,23 @@ require_once('../theme/header.php');
 		<td><b>Model</b></td>
 		<td><b>Price</b></td>
 		<td><b>Owner</b></td>
+		
 		<?php
 		while($car=$cars->fetch()) {
 			echo '<tr>';
 			echo '<td>'.$car['year'].'</td><td>'.$car['make'].'</td><td>'.$car['model'].'</td><td>$'.$car['price'].'.00</td>
 				  <td>'.$car['first_name'].' '.$car['last_name'].'</td>';
 			
-			echo '<td>
-				<a class="btn btn-secondary" href="cars/details.php?id='.$car['ID'].'">Details </a>';
+			echo '<td>';
+			echo '<div class="btn-group" role="group" aria-label="Basic example">';
+			echo '<a class="btn btn-secondary" href="cars/details.php?id='.$car['ID'].'">Details </a>';
 				
-			if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $car['userID']))
-				echo '<button class="btn-post-delete btn btn-danger" data-id="'.$car['ID'].'">Delete</button>
-					  <a class="btn btn-warning" href="cars/modify.php?id='.$car['ID'].'">Edit</a>';
-			'</td>';
+			if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $car['userID'])) {
+				echo '<button class="btn-post-delete btn btn-danger" data-id="'.$car['ID'].'">Delete</button>';
+				echo '<a class="btn btn-warning" href="cars/modify.php?id='.$car['ID'].'">Edit</a>';
+			}
+			echo '</div>';
+			echo '</td>';
 			echo '</tr>';
 		}
 		?>

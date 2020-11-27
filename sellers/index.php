@@ -17,13 +17,16 @@ require_once('../theme/header.php');
 		while($user=$result->fetch()) {
 			echo '<tr>';
 			echo '<td>'.$user['ID'].'</td><td>'.$user['first_name'].' '.$user['last_name'].'</td><td>'.$user['email'].'</td>';
-			echo '<td>
-				<a href="sellers/details.php?id='.$user['ID'].'">Details </a>';
+			echo '<td>';
+			echo '<div class="btn-group" role="group" aria-label="Basic example">';
+			echo '<a class="btn btn-secondary" href="sellers/details.php?id='.$user['ID'].'">Details </a>';
 				
-			if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $user['ID'])) 
-				echo '<button class="btn-post-delete btn btn-danger" data-id="'.$user['ID'].'">Delete</button>
-				  <a href="sellers/modify.php?id='.$user['ID'].'">Edit</a>';
-			'</td>';
+			if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $user['ID'])) {
+				echo '<button class="btn-post-delete btn btn-danger" data-id="'.$user['ID'].'">Delete</button>';
+				echo '<a class="btn btn-warning" href="sellers/modify.php?id='.$user['ID'].'">Edit</a>';
+			}
+			echo '</div>';
+			echo '</td>';
 			echo '</tr>';
 		}
 		?>

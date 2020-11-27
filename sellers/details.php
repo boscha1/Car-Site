@@ -15,7 +15,6 @@ require_once('../theme/header.php');
 		<h2>Seller Profile</h2>
 		<a class="btn btn-secondary" href="sellers/index.php">Back to sellers</a>
 		<a class="btn btn-warning" href="sellers/modify.php?id=<?= $user['ID'] ?>">Edit Seller Info</a>
-		<a class="btn btn-danger" href="sellers/delete.php?id=<?= $user['ID'] ?>">Delete Seller Info</a>
 		  <div class="form-group">
 			<label>First name:</label>
 			<?= $user['first_name'] ?>

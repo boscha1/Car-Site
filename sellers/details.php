@@ -32,6 +32,11 @@ require_once('../theme/header.php');
 		  }
 		  ?>
 		<h2>Cars for sale by <?= $user['first_name'].' '.$user['last_name'] ?></h2>
+		<?php
+		if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $user['ID'])) {
+			echo '<a class="btn btn-primary" href="cars/create.php">Add new car</a>';
+		}
+		?>
 		<table class="table responsive">
 		<td><b>Year</b></td>
 		<td><b>Make</b></td>

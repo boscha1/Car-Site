@@ -30,7 +30,7 @@ query($pdo, 'CREATE TABLE IF NOT EXISTS `cars` (
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4');
 
 query($pdo, 'INSERT INTO `cars` (`ID`, `make`, `model`, `year`, `miles`, `price`, `userID`, `state_code`) VALUES
-(44, \'Chevy\', \'Malibu\', 2005, 80000, 15000, 21, \'\');');
+(45, \'Chevy\', \'Malibu\', 2005, 80000, 15000, 21, \'\');');
 
 query($pdo, 'CREATE TABLE IF NOT EXISTS `states` (
   `state_code` varchar(2) NOT NULL,

@@ -9,7 +9,8 @@ try {
 	// Connection to the database
 	$pdo = new PDO($dsn, $user, $pass, $opt);
 	
-	query($pdo, 'CREATE TABLE IF NOT EXISTS `cars` (
+	query($pdo, '
+	CREATE TABLE IF NOT EXISTS `cars` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `make` varchar(48) DEFAULT NULL,
   `model` varchar(48) DEFAULT NULL,

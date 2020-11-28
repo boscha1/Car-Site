@@ -38,7 +38,7 @@ query($pdo, 'CREATE TABLE IF NOT EXISTS `states` (
   PRIMARY KEY (`state_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;');
 
-query($pdo, 'INSERT INTO `states` (`state_code`, `state_name`) VALUES
+/*query($pdo, 'INSERT INTO `states` (`state_code`, `state_name`) VALUES
 (\'AK\', \'Alaska\'),
 (\'AL\', \'Alabama\'),
 (\'AR\', \'Arkansas\'),
@@ -90,7 +90,7 @@ query($pdo, 'INSERT INTO `states` (`state_code`, `state_name`) VALUES
 (\'WI\', \'Wisconsin\'),
 (\'WV\', \'West Virginia\'),
 (\'WY\', \'Wyoming\')');
-
+*/
 query($pdo, 'CREATE TABLE IF NOT EXISTS `users` (
   `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `first_name` varchar(48) DEFAULT NULL,

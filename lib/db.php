@@ -7,7 +7,7 @@ $opt = [
 	];
 // Connection to the database
 $pdo = new PDO($dsn, $user, $pass, $opt);
-
+if (!isset($pdo)) die('error');
 // Advantage of PDO:
 //		- Write the query once, but can use it multiple times
 function query($pdo,$query,$data=[]) {

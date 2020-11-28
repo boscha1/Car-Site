@@ -30,10 +30,7 @@ query($pdo, 'CREATE TABLE IF NOT EXISTS `cars` (
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4');
 
 query($pdo, 'INSERT INTO `cars` (`ID`, `make`, `model`, `year`, `miles`, `price`, `userID`, `state_code`) VALUES
-(44, \'Chevy\', \'Malibu\', 2005, 80000, 15000, 21, \'\'),
-(45, \'Lexus\', \'RX\', 2013, 2000, 25000, 28, \'\'),
-(46, \'Honda\', \'Civic\', 2020, 80000, 200000, 28, \'\'),
-(47, \'Mercedes\', \'Benz\', 2010, 59448, 10000, 31, \'\')');
+(44, \'Chevy\', \'Malibu\', 2005, 80000, 15000, 21, \'\');');
 
 query($pdo, 'CREATE TABLE IF NOT EXISTS `states` (
   `state_code` varchar(2) NOT NULL,
@@ -107,11 +104,7 @@ query($pdo, 'CREATE TABLE IF NOT EXISTS `users` (
 
 query($pdo, 'INSERT INTO `users` (`ID`, `first_name`, `last_name`, `email`, `password`, `role`) VALUES
 (18, \'Jeff\', \'Smith\', \'smithj1@nku.edu\', \'$2y$10$l.nKN80joEuhrhLz4XwXHezuKM6GQGn.d2/SppdM4QRhDUvtgKxa2\', 0),
-(21, \'admin\', \'admin\', \'admin@test.com\', \'$2y$10$kItIsYRb8wncW4J6yOT23OkiS4ih8QKLSDNdVCLkFODU6H4FqiOGO\', 1),
-(23, \'Denise\', \'Bosch\', \'djbosch@live.com\', \'$2y$10$jDbQ2FOUDB2U.vsFl2NDe.c825OvRe4tYLjydWffDG2SqGJDTbvUm\', 0),
-(28, \'Anthony\', \'Bosch\', \'bosch.anthony7@gmail.com\', \'$2y$10$eJzqbUO9p/AZ5jetrk8miuRqaUFkK4IOvUBhoEXCO.Y/143Nw6MSy\', 0),
-(30, \'Ringo\', \'Starr\', \'starr@nku.edu\', \'$2y$10$P8/4A6.q042xVT7N8KHkfuAJ.ICMnvUXOW6e9D7QKg7P5AKvhmafa\', 0),
-(31, \'Michael\', \'Jordan\', \'jordan@nku.edu\', \'$2y$10$i8bMZNMPyqcwBl.DgLC05.EjnANkC8nLE4LsEXrs10UvEx7HBtHJC\', 0);');
+(21, \'admin\', \'admin\', \'admin@test.com\', \'$2y$10$kItIsYRb8wncW4J6yOT23OkiS4ih8QKLSDNdVCLkFODU6H4FqiOGO\', 1);');
 query($pdo, 'COMMIT;');
 		
 	die('table created');

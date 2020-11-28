@@ -1,4 +1,12 @@
 <?php
+// Advantage of PDO:
+//		- Write the query once, but can use it multiple times
+function query($pdo,$query,$data=[]) {
+	$query = $pdo->prepare($query);
+	$query->execute($data);
+	return $query;
+}
+
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $opt = [
 	PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,
@@ -27,11 +35,4 @@ try {
 catch(Exception $e) {
 	print_r($e);
 	die();
-}
-// Advantage of PDO:
-//		- Write the query once, but can use it multiple times
-function query($pdo,$query,$data=[]) {
-	$query = $pdo->prepare($query);
-	$query->execute($data);
-	return $query;
 }

@@ -16,11 +16,6 @@ $opt = [
 try {
 	// Connection to the database
 	$pdo = new PDO($dsn, $user, $pass, $opt);
-	
-	query($pdo, '
-	CREATE DATABASE IF NOT EXISTS `midtermdb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `midtermdb`');
-
 
 query($pdo, 'CREATE TABLE IF NOT EXISTS `cars` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,

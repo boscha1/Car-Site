@@ -8,6 +8,20 @@ $opt = [
 try {
 	// Connection to the database
 	$pdo = new PDO($dsn, $user, $pass, $opt);
+	
+	query($pdo, 'CREATE TABLE IF NOT EXISTS `cars` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `make` varchar(48) DEFAULT NULL,
+  `model` varchar(48) DEFAULT NULL,
+  `year` int(4) DEFAULT NULL,
+  `miles` int(11) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `userID` int(10) UNSIGNED DEFAULT NULL,
+  `state_code` varchar(2) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4;');
+	
+	die('table created');
 }
 catch(Exception $e) {
 	print_r($e);

@@ -5,8 +5,8 @@
 	//		- security (usable prepared statements)
 	//		- usability (many helper functions to automate routine operations)
 	//		- reusability (unified API to access multitude of databases, from SQLite to Oracle)
-
 $charset = 'utf8';
+
 
 if ($_SERVER['SERVER_NAME']=='localhost') {
 	$host = 'localhost';
@@ -22,7 +22,10 @@ else {
 	$db = substr($url["path", 1]);
 	$user = $url["user"];
 	$pass = $url["pass"];
-	//$base_URL = 'https://nku-car-site.herokuapp.com/';
+	// $base_URL = 'https://nku-car-site.herokuapp.com/';
+	// host = us-cdbr-east-02.cleardb.com
+	// user = b533c8afed0280
+	// pass = f199a65e
 }
 
 session_start();

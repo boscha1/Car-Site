@@ -5,9 +5,14 @@ $opt = [
 	PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC,
 	PDO::ATTR_EMULATE_PREPARES=>false,
 	];
-// Connection to the database
-$pdo = new PDO($dsn, $user, $pass, $opt);
-if (!isset($pdo)) die('error');
+try {
+	// Connection to the database
+	$pdo = new PDO($dsn, $user, $pass, $opt);
+}
+catch(Exception $e) {
+	print_r($e);
+	die();
+}
 // Advantage of PDO:
 //		- Write the query once, but can use it multiple times
 function query($pdo,$query,$data=[]) {

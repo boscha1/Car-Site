@@ -111,9 +111,8 @@ query($pdo, 'INSERT INTO `users` (`ID`, `first_name`, `last_name`, `email`, `pas
 (23, \'Denise\', \'Bosch\', \'djbosch@live.com\', \'$2y$10$jDbQ2FOUDB2U.vsFl2NDe.c825OvRe4tYLjydWffDG2SqGJDTbvUm\', 0),
 (28, \'Anthony\', \'Bosch\', \'bosch.anthony7@gmail.com\', \'$2y$10$eJzqbUO9p/AZ5jetrk8miuRqaUFkK4IOvUBhoEXCO.Y/143Nw6MSy\', 0),
 (30, \'Ringo\', \'Starr\', \'starr@nku.edu\', \'$2y$10$P8/4A6.q042xVT7N8KHkfuAJ.ICMnvUXOW6e9D7QKg7P5AKvhmafa\', 0),
-(31, \'Michael\', \'Jordan\', \'jordan@nku.edu\', \'$2y$10$i8bMZNMPyqcwBl.DgLC05.EjnANkC8nLE4LsEXrs10UvEx7HBtHJC\', 0);
-COMMIT;
-	');
+(31, \'Michael\', \'Jordan\', \'jordan@nku.edu\', \'$2y$10$i8bMZNMPyqcwBl.DgLC05.EjnANkC8nLE4LsEXrs10UvEx7HBtHJC\', 0);');
+query($pdo, 'COMMIT;');
 		
 	die('table created');
 }

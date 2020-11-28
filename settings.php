@@ -1,4 +1,6 @@
 <?php
+phpinfo();
+die();
 	// PDO = PHP Data Objects
 	// PDO is a Database Access Abstraction Layer
 	// PDO Benefits:

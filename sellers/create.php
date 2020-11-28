@@ -1,9 +1,12 @@
 <?php
 require_once('../settings.php');
 require_once('../lib/db.php');
+//require_once('../functions.php');
 
 // define variables and set to empty values
 $firstName = $lastName = $email = "";
+$check_duplicate = 0;
+
 
 function test_input($data) {
   $data = trim($data);
@@ -18,6 +21,13 @@ if (!isset($_SESSION['user/ID']))
 
 if(count($_POST)>0) {
 	$email = $_POST['email'];
+	
+	$result = query($pdo, 'SELECT * FROM users WHERE email = ?', [$email]);
+	$count = $result->rowCount();
+
+	if ($count > 0) {
+		$check_duplicate = 1;
+	}
 	
 	if (isset($_POST['submit'])) {
 		if (empty($_POST['first_name'])) {
@@ -35,6 +45,9 @@ if(count($_POST)>0) {
 		elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			die("$email is not a valid email address");
 		}
+		elseif ($check_duplicate == 1) {
+			die("$email already exists");
+		}
 		else {
 			query($pdo, 'INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)',
 			[$_POST["first_name"],$_POST["last_name"],$_POST["email"],password_hash($_POST['password'], PASSWORD_DEFAULT)]);
@@ -47,7 +60,7 @@ require_once('../theme/header.php');
 ?>
 	<div class="container">
 		<h2>Enter the details below:</h2>
-		<a class="btn btn-secondary" href="cars/index.php">Back to sellers</a>
+		<a class="btn btn-secondary" href="sellers/index.php">Back to sellers</a>
 		<form method="POST">
 		  <div class="form-group">
 			<label>First name</label>

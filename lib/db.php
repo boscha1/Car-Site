@@ -19,10 +19,10 @@ try {
 	
 	query($pdo, '
 	CREATE DATABASE IF NOT EXISTS `midtermdb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `midtermdb`;
+USE `midtermdb`');
 
 
-CREATE TABLE IF NOT EXISTS `cars` (
+query($pdo, 'CREATE TABLE IF NOT EXISTS `cars` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `make` varchar(48) DEFAULT NULL,
   `model` varchar(48) DEFAULT NULL,
@@ -32,25 +32,21 @@ CREATE TABLE IF NOT EXISTS `cars` (
   `userID` int(10) UNSIGNED DEFAULT NULL,
   `state_code` varchar(2) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4');
 
---
--- Dumping data for table `cars`
---
-
-INSERT INTO `cars` (`ID`, `make`, `model`, `year`, `miles`, `price`, `userID`, `state_code`) VALUES
+query($pdo, 'INSERT INTO `cars` (`ID`, `make`, `model`, `year`, `miles`, `price`, `userID`, `state_code`) VALUES
 (44, \'Chevy\', \'Malibu\', 2005, 80000, 15000, 21, \'\'),
 (45, \'Lexus\', \'RX\', 2013, 2000, 25000, 28, \'\'),
 (46, \'Honda\', \'Civic\', 2020, 80000, 200000, 28, \'\'),
-(47, \'Mercedes\', \'Benz\', 2010, 59448, 10000, 31, \'\');
+(47, \'Mercedes\', \'Benz\', 2010, 59448, 10000, 31, \'\')');
 
-CREATE TABLE IF NOT EXISTS `states` (
+query($pdo, 'CREATE TABLE IF NOT EXISTS `states` (
   `state_code` varchar(2) NOT NULL,
   `state_name` varchar(32) NOT NULL,
   PRIMARY KEY (`state_code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;');
 
-INSERT INTO `states` (`state_code`, `state_name`) VALUES
+query($pdo, 'INSERT INTO `states` (`state_code`, `state_name`) VALUES
 (\'AK\', \'Alaska\'),
 (\'AL\', \'Alabama\'),
 (\'AR\', \'Arkansas\'),
@@ -101,9 +97,9 @@ INSERT INTO `states` (`state_code`, `state_name`) VALUES
 (\'WA\', \'Washington\'),
 (\'WI\', \'Wisconsin\'),
 (\'WV\', \'West Virginia\'),
-(\'WY\', \'Wyoming\');
+(\'WY\', \'Wyoming\')');
 
-CREATE TABLE IF NOT EXISTS `users` (
+query($pdo, 'CREATE TABLE IF NOT EXISTS `users` (
   `ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `first_name` varchar(48) DEFAULT NULL,
   `last_name` varchar(48) DEFAULT NULL,
@@ -111,10 +107,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(72) DEFAULT NULL,
   `role` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4');
 
 
-INSERT INTO `users` (`ID`, `first_name`, `last_name`, `email`, `password`, `role`) VALUES
+query($pdo, 'INSERT INTO `users` (`ID`, `first_name`, `last_name`, `email`, `password`, `role`) VALUES
 (18, \'Jeff\', \'Smith\', \'smithj1@nku.edu\', \'$2y$10$l.nKN80joEuhrhLz4XwXHezuKM6GQGn.d2/SppdM4QRhDUvtgKxa2\', 0),
 (21, \'admin\', \'admin\', \'admin@test.com\', \'$2y$10$kItIsYRb8wncW4J6yOT23OkiS4ih8QKLSDNdVCLkFODU6H4FqiOGO\', 1),
 (23, \'Denise\', \'Bosch\', \'djbosch@live.com\', \'$2y$10$jDbQ2FOUDB2U.vsFl2NDe.c825OvRe4tYLjydWffDG2SqGJDTbvUm\', 0),

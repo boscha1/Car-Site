@@ -19,7 +19,7 @@ if ($_SERVER['SERVER_NAME']=='localhost') {
 else {
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 	$host = $url["host"];
-	$db = substr($url["path", 1]);
+	$db = substr($url["path"], 1);
 	$user = $url["user"];
 	$pass = $url["pass"];
 	// $base_URL = 'https://nku-car-site.herokuapp.com/';

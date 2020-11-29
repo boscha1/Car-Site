@@ -28,7 +28,7 @@ try {
 	  `state_code` varchar(2) NOT NULL,
 	  PRIMARY KEY (`ID`)
 	) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;');
-	die('table created');
+	die('table created!!!');
 
 }
 catch(Exception $e) {

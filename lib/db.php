@@ -108,7 +108,7 @@ query($pdo, 'CREATE TABLE IF NOT EXISTS `users` (
 query($pdo, 'COMMIT;');
 		
 	die('table created');
-*/
+
 }
 catch(Exception $e) {
 	print_r($e);

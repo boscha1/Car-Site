@@ -17,6 +17,14 @@ try {
 	// Connection to the database
 	$pdo = new PDO($dsn, $user, $pass, $opt);
 
+}
+catch(Exception $e) {
+	echo '<prev>';
+	print_r($e);
+	die();
+}
+
+function initDB() {
 	query($pdo, 'CREATE TABLE IF NOT EXISTS `cars` (
 	  `ID` int(11) NOT NULL AUTO_INCREMENT,
 	  `make` varchar(48) DEFAULT NULL,
@@ -56,10 +64,4 @@ try {
 	
 	query($pdo, 'COMMIT;');
 	die('table created!!!');
-
-}
-catch(Exception $e) {
-	echo '<prev>';
-	print_r($e);
-	die();
 }

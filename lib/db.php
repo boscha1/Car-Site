@@ -29,8 +29,8 @@ try {
 	  PRIMARY KEY (`ID`)
 	) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;');
 
-	query($pdo, 'INSERT INTO `cars` (`ID`, `make`, `model`, `year`, `miles`, `price`, `userID`, `state_code`) VALUES
-	(1, \'Chevy\', \'Malibu\', 2005, 80000, 15000, 4, \'\');');
+	query($pdo, 'INSERT INTO `cars` (`make`, `model`, `year`, `miles`, `price`, `userID`, `state_code`) VALUES
+	(\'Chevy\', \'Malibu\', 2005, 80000, 15000, 4, \'\');');
 
 
 	query($pdo, 'CREATE TABLE IF NOT EXISTS `users` (
@@ -44,21 +44,22 @@ try {
 	) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;');
 
 
-	query($pdo, 'INSERT INTO `users` (`ID`, `first_name`, `last_name`, `email`, `password`, `role`) VALUES
-	(1, \'Jeff\', \'Smith\', \'smithj1@nku.edu\', \'$2y$10$l.nKN80joEuhrhLz4XwXHezuKM6GQGn.d2/SppdM4QRhDUvtgKxa2\', 0),
-	(2, \'admin\', \'admin\', \'admin@test.com\', \'$2y$10$kItIsYRb8wncW4J6yOT23OkiS4ih8QKLSDNdVCLkFODU6H4FqiOGO\', 1),
-	(3, \'Jeff\', \'Smith\', \'smithj1@nku.edu\', \'$2y$10$l.nKN80joEuhrhLz4XwXHezuKM6GQGn.d2/SppdM4QRhDUvtgKxa2\', 0),
-	(4, \'admin\', \'admin\', \'admin@test.com\', \'$2y$10$kItIsYRb8wncW4J6yOT23OkiS4ih8QKLSDNdVCLkFODU6H4FqiOGO\', 1),
-	(5, \'Denise\', \'Bosch\', \'djbosch@live.com\', \'$2y$10$jDbQ2FOUDB2U.vsFl2NDe.c825OvRe4tYLjydWffDG2SqGJDTbvUm\', 0),
-	(6, \'Anthony\', \'Bosch\', \'bosch.anthony7@gmail.com\', \'$2y$10$eJzqbUO9p/AZ5jetrk8miuRqaUFkK4IOvUBhoEXCO.Y/143Nw6MSy\', 0),
-	(7, \'Ringo\', \'Starr\', \'starr@nku.edu\', \'$2y$10$P8/4A6.q042xVT7N8KHkfuAJ.ICMnvUXOW6e9D7QKg7P5AKvhmafa\', 0),
-	(8, \'Michael\', \'Jordan\', \'jordan@nku.edu\', \'$2y$10$i8bMZNMPyqcwBl.DgLC05.EjnANkC8nLE4LsEXrs10UvEx7HBtHJC\', 0);');
+	query($pdo, 'INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`, `role`) VALUES
+	(\'Jeff\', \'Smith\', \'smithj1@nku.edu\', \'$2y$10$l.nKN80joEuhrhLz4XwXHezuKM6GQGn.d2/SppdM4QRhDUvtgKxa2\', 0),
+	(\'admin\', \'admin\', \'admin@test.com\', \'$2y$10$kItIsYRb8wncW4J6yOT23OkiS4ih8QKLSDNdVCLkFODU6H4FqiOGO\', 1),
+	(\'Jeff\', \'Smith\', \'smithj1@nku.edu\', \'$2y$10$l.nKN80joEuhrhLz4XwXHezuKM6GQGn.d2/SppdM4QRhDUvtgKxa2\', 0),
+	(\'admin\', \'admin\', \'admin@test.com\', \'$2y$10$kItIsYRb8wncW4J6yOT23OkiS4ih8QKLSDNdVCLkFODU6H4FqiOGO\', 1),
+	(\'Denise\', \'Bosch\', \'djbosch@live.com\', \'$2y$10$jDbQ2FOUDB2U.vsFl2NDe.c825OvRe4tYLjydWffDG2SqGJDTbvUm\', 0),
+	(\'Anthony\', \'Bosch\', \'bosch.anthony7@gmail.com\', \'$2y$10$eJzqbUO9p/AZ5jetrk8miuRqaUFkK4IOvUBhoEXCO.Y/143Nw6MSy\', 0),
+	(\'Ringo\', \'Starr\', \'starr@nku.edu\', \'$2y$10$P8/4A6.q042xVT7N8KHkfuAJ.ICMnvUXOW6e9D7QKg7P5AKvhmafa\', 0),
+	(\'Michael\', \'Jordan\', \'jordan@nku.edu\', \'$2y$10$i8bMZNMPyqcwBl.DgLC05.EjnANkC8nLE4LsEXrs10UvEx7HBtHJC\', 0);');
 	
 	query($pdo, 'COMMIT;');
 	die('table created!!!');
 
 }
 catch(Exception $e) {
+	echo '<prev>';
 	print_r($e);
 	die();
 }

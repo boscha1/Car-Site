@@ -29,7 +29,7 @@ try {
 	  PRIMARY KEY (`ID`)
 	) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;');
 
-	INSERT INTO `cars` (`ID`, `make`, `model`, `year`, `miles`, `price`, `userID`, `state_code`) VALUES
+	query($pdo, 'INSERT INTO `cars` (`ID`, `make`, `model`, `year`, `miles`, `price`, `userID`, `state_code`) VALUES
 	(1, \'Chevy\', \'Malibu\', 2005, 80000, 15000, 4, \'\');');
 
 

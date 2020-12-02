@@ -20,6 +20,7 @@
 			$.get('sellers/delete.php?id='+$(this).attr('data-id'), function(data, status){
 				console.log(data);
 				el.parents('tr').remove();
+				// if id == session id
 			});
 		});
 		

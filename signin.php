@@ -2,7 +2,7 @@
 
 require_once('theme/header.php');
 ?>
-	<div class="container">
+	<div class="container" style="padding-top: 10%">
 		<h2>Access account</h2>
 		<form action="lib/auth.php" method="POST">
 		  <div class="form-group">

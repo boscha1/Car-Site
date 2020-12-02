@@ -12,7 +12,7 @@ $car = $result->fetch();
 require_once('../theme/header.php');
 ?>
 <!doctype html>
-	<div class="container">
+	<div class="container" style="padding-top: 10%">
 		<h2>Car Details:</h2>
 		<a class="btn btn-secondary" href="cars/index.php">Back to cars</a>
 		<a class="btn btn-warning" href="cars/modify.php?id=<?= $car['ID'] ?>">Edit Car Info</a>

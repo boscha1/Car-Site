@@ -6,7 +6,7 @@ $result = query($pdo, 'SELECT * FROM users');
 //header('location:organizers_index.php');
 require_once('../theme/header.php');
 ?>
-	<div class="container">
+	<div class="container" style="padding-top: 10%">
 		<h2>Users</h2>
 		<a class="btn btn-primary" href="sellers/create.php">Add new seller</a>
 		<table class="table responsive">

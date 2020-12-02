@@ -9,7 +9,7 @@ users.first_name,users.last_name FROM cars JOIN users ON users.ID = cars.userID'
 //header('location:organizers_index.php');
 require_once('../theme/header.php');
 ?>
-	<div class="container">
+	<div class="container" style="padding-top: 10%">
 		<h2>Cars for Sale</h2>
 		<a class="btn btn-primary" href="cars/create.php">Add new car</a>
 		<table class="table responsive">

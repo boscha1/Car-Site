@@ -10,13 +10,14 @@ $cars = query($pdo, 'SELECT * FROM cars WHERE cars.userID = ?', [$_GET['id']]);
 
 //header('location:organizers_index.php');
 require_once('../theme/header.php');
+
 ?>
-	<div class="container">
+	<div class="container" style="padding-top: 10%">
 		<h2>Seller Profile</h2>
 		<a class="btn btn-secondary" href="sellers/index.php">Back to sellers</a>
 		<a class="btn btn-warning" href="sellers/modify.php?id=<?= $user['ID'] ?>">Edit Seller Info</a>
 		  <div class="form-group">
-			<label>First name:</label>
+			<label>First name:<?= print_r($_SESSION['user/ID']); echo ' ';print_r($user['ID']); ?></label>
 			<?= $user['first_name'] ?>
 		  </div>
 		  <div class="form-group">

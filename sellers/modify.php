@@ -21,7 +21,7 @@ if(count($_POST)>0) {
 		die("$email is not a valid email address");
 	}
 	query($pdo, 'UPDATE users SET first_name=?, last_name=?, email=?, password=? WHERE ID=?',
-	[$_POST['first_name'],$_POST['last_name'],$_POST['email'],password_hash($_POST['password'],PASSWORD_DEFAULT),$_POST['ID']]);
+	[ucfirst($_POST['first_name']),ucfirst($_POST['last_name']),$_POST['email'],password_hash($_POST['password'],PASSWORD_DEFAULT),$_POST['ID']]);
 	die('data saved');
 }
 else{
@@ -34,7 +34,7 @@ if ($_SESSION['user/role'] == 0 && $_SESSION['user/ID'] != $_GET['id'])
 
 require_once('../theme/header.php');
 ?>
-	<div class="container">
+	<div class="container" style="padding-top: 10%">
 		<h2>Modify the details below:</h2>
 		<a class="btn btn-secondary" href="sellers/index.php">Back to sellers</a>
 		<form id="seller-modify" method="POST">

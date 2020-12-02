@@ -28,7 +28,7 @@ if(count($_POST)>0) {
 		}
 		else {
 			query($pdo, 'INSERT INTO cars (make, model, year, miles, price, userID) VALUES (?,?,?,?,?,?)',
-			[$_POST['make'],$_POST['model'],$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID']]);
+			[ucfirst($_POST['make']),ucfirst($_POST['model']),$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID']]);
 			header('location:index.php');
 		}
 	}
@@ -36,7 +36,7 @@ if(count($_POST)>0) {
 
 require_once('../theme/header.php');
 ?>
-	<div class="container">
+	<div class="container"style="padding-top: 10%">
 		<h2>Enter the details of your car below:</h2>
 		<a class="btn btn-secondary" href="cars/index.php">Back to cars</a>
 		<form method="POST">

@@ -27,7 +27,7 @@ if(count($_POST)>0) {
 	}
 	
 	query($pdo, 'UPDATE cars SET make=?, model=?, year=?, miles=?, price=? WHERE ID=?',
-	[$_POST['make'],$_POST['model'],$_POST['year'],$_POST['miles'],$_POST['price'],$_POST['ID']]);
+	[ucfirst($_POST['make']),ucfirst($_POST['model']),$_POST['year'],$_POST['miles'],$_POST['price'],$_POST['ID']]);
 	die('data saved');
 }
 else{
@@ -40,7 +40,7 @@ if ($_SESSION['user/role'] == 0 && $_SESSION['user/ID'] != $car['userID'])
 
 require_once('../theme/header.php');
 ?>
-	<div class="container">
+	<div class="container" style="padding-top: 10%">
 		<h2>Modify the details of your car below:</h2>
 		<a class="btn btn-secondary" href="cars/index.php">Back to cars</a>
 		<form id="car-modify" method="POST">

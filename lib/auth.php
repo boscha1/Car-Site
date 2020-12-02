@@ -42,7 +42,7 @@ function signup() {
 	if ($result->rowCount()>0) 
 		die('The email address is already registered');
 	else { // otherwise, insert and redirect the user
-		query($pdo, 'INSERT INTO users(first_name, last_name, email,password) VALUES(?,?,?,?)',[$_POST['first_name'],$_POST['last_name'],
+		query($pdo, 'INSERT INTO users(first_name, last_name, email,password) VALUES(?,?,?,?)',[ucfirst($_POST['first_name']),ucfirst($_POST['last_name']),
 		$_POST['email'], password_hash($_POST['password'],PASSWORD_DEFAULT)]);
 		header('location: ../index.php');
 	}

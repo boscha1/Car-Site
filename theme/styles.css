@@ -1,0 +1,19 @@
+ #section1 { 
+        float: left; 
+        width: 100vw; 
+        height: 600px; 
+        padding: 20px;
+        color: #FFF; 
+        background-image: url('car_index.jpg');
+        background-repeat: no-repeat; 
+        background-size: cover;
+    }
+    #section1 img {
+        height: 40%; 
+        width: cover; 
+        background-repeat: no-repeat;
+    }
+	#b { 
+        font-family: 'Spartan', sans-serif; font-size: 50px;
+        text-align: left; 
+    }

@@ -1,4 +1,10 @@
 </div>
+	<!-- FOOTER -->
+	<div style="height: 20vh; width: 100vw; padding-top: 20%">
+		<div id="center" class="card-footer text-muted" style="height: 10vh; width: 100vw;text-align: center;">
+		  Car Site
+		</div>
+	</div>
 	<script src="jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 	<script>
 		$(document).on('click','.btn-car-delete',function(){

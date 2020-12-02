@@ -4,7 +4,7 @@
         height: 600px; 
         padding: 20px;
         color: #FFF; 
-        background-image: url('car_index.jpg');
+        background-image: url('car_index_2.jpg');
         background-repeat: no-repeat; 
         background-size: cover;
     }
@@ -17,3 +17,9 @@
         font-family: 'Spartan', sans-serif; font-size: 50px;
         text-align: left; 
     }
+	#home-table {
+		padding-top: 50%;
+	}
+	#center {
+	  text-align: center;
+	}

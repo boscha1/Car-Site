@@ -7,7 +7,7 @@ $result = query($pdo, 'SELECT * FROM users');
 require_once('../theme/header.php');
 ?>
 	<div class="container" style="padding-top: 10%">
-		<h2>Users</h2>
+		<h2>Sellers</h2>
 		<a class="btn btn-primary" href="sellers/create.php">Add new seller</a>
 		<table class="table responsive">
 		<td><b>ID</b></td>

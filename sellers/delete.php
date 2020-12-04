@@ -8,14 +8,11 @@ if (!isset($_SESSION['user/ID']))
 if ($_SESSION['user/role'] == 0 && $_SESSION['user/ID'] != $_GET['id'])
 	die('Authorization notice: You can only delete your own information');
 
-query($pdo, 'DELETE FROM users WHERE ID=?',[$_GET['id']]);
 if($_SESSION['user/ID'] == $_GET['id']) {
 	require_once('../lib/auth.php');
-	signout();
+	session_destroy();
 }
 
-header('location:index.php');
+query($pdo, 'DELETE FROM users WHERE ID=?',[$_GET['id']]);
 
-require_once('../theme/header.php');
-require_once('../theme/footer.php');
 ?>

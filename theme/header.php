@@ -7,6 +7,7 @@ else {
 	require_once('settings.php');
 	require_once('lib/db.php');
 }
+$states = query($pdo, 'SELECT * FROM states');
 ?>
 <!doctype html>
 <html lang="en">
@@ -76,9 +77,11 @@ else {
 					<a class="nav-link" href="signup.php">Sign up</span></a>
 				  </li>';
 			}
+
 		?>
 		</ul>
 	  </div>
 	  </div>
 	</nav>
+	
 	

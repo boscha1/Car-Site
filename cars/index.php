@@ -11,6 +11,13 @@ require_once('../theme/header.php');
 ?>
 	<div class="container" style="padding-top: 10%">
 		<h2>Cars for Sale</h2>
+		<select name="state" class="form-control">
+		<?php
+			while ($state = $states->fetch()) {
+				echo '<option value="'.$state['state_code'].'">'.$state['state_name'].'</option>';
+			}
+		?>
+		</select>
 		<a class="btn btn-primary" href="cars/create.php">Add new car</a>
 		<table class="table responsive">
 		<td><b>Year</b></td>

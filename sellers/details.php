@@ -17,7 +17,7 @@ require_once('../theme/header.php');
 		<a class="btn btn-secondary" href="sellers/index.php">Back to sellers</a>
 		<a class="btn btn-warning" href="sellers/modify.php?id=<?= $user['ID'] ?>">Edit Seller Info</a>
 		  <div class="form-group">
-			<label>First name:<?= print_r($_SESSION['user/ID']); echo ' ';print_r($user['ID']); ?></label>
+			<label>First name:</label>
 			<?= $user['first_name'] ?>
 		  </div>
 		  <div class="form-group">

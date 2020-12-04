@@ -60,6 +60,12 @@ require_once('../theme/header.php');
 			<label>Price (e.g, 10000)</label>
 			<input type="text" class="form-control" name="price">
 		  </div>
+		  <!--
+		  <form action="upload.php" method="POST">
+			Select image to upload:
+			  <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+		  </form>
+			-->
 		  <button type="submit" class="btn btn-primary" name="submit">Submit</button>
 		</form>
 	</div>

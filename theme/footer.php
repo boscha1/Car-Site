@@ -1,4 +1,3 @@
-</div>
 	<!-- FOOTER -->
 	<div style="height: 20vh; width: 100vw; padding-top: 20%">
 		<div id="center" class="card-footer text-muted" style="height: 10vh; width: 100vw;text-align: center;">
@@ -19,8 +18,8 @@
 			var el=$(this);
 			$.get('sellers/delete.php?id='+$(this).attr('data-id'), function(data, status){
 				console.log(data);
-				el.parents('tr').remove();
-				// if id == session id
+				//el.parents('tr').remove();
+				window.location.href = "index.php";
 			});
 		});
 		

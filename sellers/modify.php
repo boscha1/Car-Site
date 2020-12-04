@@ -55,6 +55,7 @@ require_once('../theme/header.php');
 			<input type="password" class="form-control" name="password">
 		  </div>
 			<input type="hidden" class="form-control" name="ID" value="<?= $user['ID'] ?>">
+			
 		  <button type="submit" class="btn btn-primary" name="submit">Save changes</button>
 		</form>
 	</div>

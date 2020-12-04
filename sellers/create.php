@@ -61,7 +61,7 @@ require_once('../theme/header.php');
 	<div class="container" style="padding-top: 10%">
 		<h2>Enter the details below:</h2>
 		<a class="btn btn-secondary" href="sellers/index.php">Back to sellers</a>
-		<form method="POST">
+		<form id="seller-create" method="POST">
 		  <div class="form-group">
 			<label>First name</label>
 			<input type="text" class="form-control" name="first_name">

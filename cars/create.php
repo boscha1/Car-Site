@@ -26,11 +26,11 @@ if(count($_POST)>0) {
 		elseif (!is_numeric($_POST['year'])) {
 			die('Please enter a valid year');
 		}
-		else {
-			query($pdo, 'INSERT INTO cars (make, model, year, miles, price, userID) VALUES (?,?,?,?,?,?)',
-			[ucfirst($_POST['make']),ucfirst($_POST['model']),$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID']]);
-			header('location:index.php');
-		}
+		
+		query($pdo, 'INSERT INTO cars (make, model, year, miles, price, userID) VALUES (?,?,?,?,?,?)',
+		[ucfirst($_POST['make']),ucfirst($_POST['model']),$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID']]);
+		header('location:index.php');
+		
 	}
 }
 
@@ -39,7 +39,7 @@ require_once('../theme/header.php');
 	<div class="container"style="padding-top: 10%">
 		<h2>Enter the details of your car below:</h2>
 		<a class="btn btn-secondary" href="cars/index.php">Back to cars</a>
-		<form method="POST">
+		<form id="car-create" method="POST">
 		  <div class="form-group">
 			<label>Make</label>
 			<input type="text" class="form-control" name="make">

@@ -21,12 +21,10 @@ if ($_SERVER['SERVER_NAME']=='localhost') {
 else {
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 	$host = $url["host"];
-	echo $host;
-	die();
 	$db = substr($url["path"], 1);
 	$user = $url["user"];
 	$pass = $url["pass"];
-	$base_URL = 'https://nku-car-site.herokuapp.com/';
+	$base_URL = 'https://nku-carsite.herokuapp.com/';
 	$host = 'us-cdbr-east-02.cleardb.com';
 	$user = 'b1e54e97eee6b1';
 	$pass = '585bed36';

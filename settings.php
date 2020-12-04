@@ -36,9 +36,9 @@ else {
 	$user = $url["user"];
 	$pass = $url["pass"];
 	$base_URL = 'https://nku-car-site.herokuapp.com/';
-	$host = us-cdbr-east-02.cleardb.com
-	$user = b533c8afed0280
-	$pass = f199a65e
+	$host = 'us-cdbr-east-02.cleardb.com';
+	$user = 'b533c8afed0280';
+	$pass = 'f199a65e';
 }
 
 session_start();

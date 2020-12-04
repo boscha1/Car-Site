@@ -27,8 +27,8 @@ if(count($_POST)>0) {
 			die('Please enter a valid year');
 		}
 		
-		query($pdo, 'INSERT INTO cars (make, model, year, miles, price, userID) VALUES (?,?,?,?,?,?)',
-		[ucfirst($_POST['make']),ucfirst($_POST['model']),$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID']]);
+		query($pdo, 'INSERT INTO cars (make, model, year, miles, price, userID, state) VALUES (?,?,?,?,?,?,?)',
+		[ucfirst($_POST['make']),ucfirst($_POST['model']),$_POST['year'],$_POST['miles'],$_POST['price'],$_SESSION['user/ID'],$_POST['state']]);
 		header('location:index.php');
 		
 	}
@@ -59,6 +59,17 @@ require_once('../theme/header.php');
 		  <div class="form-group">
 			<label>Price (e.g, 10000)</label>
 			<input type="text" class="form-control" name="price">
+		  </div>
+		  <div class="form-group">
+			  <label>State</label>
+			  <select name="state" class="form-control">
+			  <option value="">Select state</option>
+				<?php
+					while ($state = $states->fetch()) {
+						echo '<option value="'.$state['state_name'].'">'.$state['state_name'].'</option>';
+					}
+				?>
+			  </select>
 		  </div>
 		  <!--
 		  <form action="upload.php" method="POST">

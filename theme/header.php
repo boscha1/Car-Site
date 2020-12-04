@@ -60,7 +60,7 @@ $states = query($pdo, 'SELECT * FROM states');
 				
 				echo '<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				  Fuck you, '.$owner['first_name'].' '.$owner['last_name'].'
+				  Welcome, '.$owner['first_name'].' '.$owner['last_name'].'
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 				  <a class="dropdown-item" href="sellers/details.php?id='.$owner['ID'].'">View Profile</a>

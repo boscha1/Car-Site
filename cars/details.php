@@ -4,7 +4,7 @@ require_once('../lib/db.php');
 
 //$result = query($pdo, 'SELECT * FROM cars WHERE ID=?',[$_GET['id']]);
 
-$result = query($pdo, 'SELECT cars.ID,cars.year,cars.make,cars.model,cars.miles, cars.price, cars.userID,
+$result = query($pdo, 'SELECT cars.ID,cars.year,cars.make,cars.model,cars.miles, cars.price, cars.userID, cars.state,
 users.first_name,users.last_name, users.email FROM cars JOIN users ON users.ID = cars.userID WHERE cars.ID = ?', [$_GET['id']]);
 
 $car = $result->fetch();
@@ -35,6 +35,10 @@ require_once('../theme/header.php');
 		  <div class="form-group">
 			<label>Price:</label>
 			$<?= $car['price'] ?>
+		  </div>
+		  <div class="form-group">
+			<label>Location:</label>
+			<?= $car['state'] ?>
 		  </div>
 		  <?php
 		  if(isset($_SESSION['user/ID'])) {

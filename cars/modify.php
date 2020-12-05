@@ -26,8 +26,8 @@ if(count($_POST)>0) {
 		die('Please enter a valid year');
 	}
 	
-	query($pdo, 'UPDATE cars SET make=?, model=?, year=?, miles=?, price=? WHERE ID=?',
-	[ucfirst($_POST['make']),ucfirst($_POST['model']),$_POST['year'],$_POST['miles'],$_POST['price'],$_POST['ID']]);
+	query($pdo, 'UPDATE cars SET make=?, model=?, year=?, miles=?, price=?, state=? WHERE ID=?',
+	[ucfirst($_POST['make']),ucfirst($_POST['model']),$_POST['year'],$_POST['miles'],$_POST['price'],$_POST['state'],$_POST['ID']]);
 	die('data saved');
 }
 else{
@@ -63,6 +63,17 @@ require_once('../theme/header.php');
 		  <div class="form-group">
 			<label>Price (e.g, 10000)</label>
 			<input type="text" class="form-control" name="price" value="<?= $car['price'] ?>">
+		  </div>
+		  <div class="form-group">
+			  <label>State</label>
+			  <select name="state" class="form-control">
+			  <option value="<?= $car['state'] ?>"><?= $car['state'] ?></option>
+				<?php
+					while ($state = $states->fetch()) {
+						echo '<option value="'.$state['state_name'].'">'.$state['state_name'].'</option>';
+					}
+				?>
+			  </select>
 		  </div>
 			<input type="hidden" class="form-control" name="ID" value="<?= $car['ID'] ?>">
 		  <button type="submit" class="btn btn-primary" name="submit">Save changes</button>

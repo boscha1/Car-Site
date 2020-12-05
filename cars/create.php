@@ -23,6 +23,12 @@ if(count($_POST)>0) {
 		elseif (empty($_POST['price'])) {
 			die('Please enter a price');
 		}
+		elseif (!is_numeric($_POST['miles'])) {
+			die('Please enter a valid amount of miles');
+		}
+		elseif (!is_numeric($_POST['price'])) {
+			die('Please enter a valid price');
+		}
 		elseif (!is_numeric($_POST['year'])) {
 			die('Please enter a valid year');
 		}

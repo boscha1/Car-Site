@@ -20,8 +20,8 @@ if(count($_POST)>0) {
 	elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		die("$email is not a valid email address");
 	}
-	query($pdo, 'UPDATE users SET first_name=?, last_name=?, email=?, password=? WHERE ID=?',
-	[ucfirst($_POST['first_name']),ucfirst($_POST['last_name']),$_POST['email'],password_hash($_POST['password'],PASSWORD_DEFAULT),$_POST['ID']]);
+	query($pdo, 'UPDATE users SET first_name=?, last_name=?, email=? WHERE ID=?',
+	[ucfirst($_POST['first_name']),ucfirst($_POST['last_name']),$_POST['email'],$_POST['ID']]);
 	die('data saved');
 }
 else{
@@ -50,11 +50,13 @@ require_once('../theme/header.php');
 			<label>Email</label>
 			<input type="text" class="form-control" name="email" value="<?= $user['email'] ?>">
 		  </div>
-		  <div class="form-group">
-			<label>Change Password</label>
-			<input type="password" class="form-control" name="password">
-		  </div>
-			<input type="hidden" class="form-control" name="ID" value="<?= $user['ID'] ?>">
+		  <?php
+			if(isset($_SESSION['user/ID']) && ($_SESSION['user/role'] == 1 || $_SESSION['user/ID'] == $user['ID'])) {
+				echo '<a class="btn btn-secondary" href="sellers/password.php?id='.$user['ID'].'">Change password</a>';
+			}
+		  ?>
+		  
+		  <input type="hidden" class="form-control" name="ID" value="<?= $user['ID'] ?>">
 			
 		  <button type="submit" class="btn btn-primary" name="submit">Save changes</button>
 		</form>

@@ -13,6 +13,9 @@ require_once('theme/header.php');
 			<label>Password</label>
 			<input type="password" class="form-control" name="password">
 		  </div>
+		  <div>
+			<p>Don't have an account? <a href="signup.php">Sign up here</a></p>
+		  </div>
 		  <button type="submit" class="btn btn-primary" name="action" value="signin">Sign in</button>
 		</form>
 	</div>

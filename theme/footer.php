@@ -27,7 +27,7 @@
 			e.preventDefault();
 			$.post("cars/modify.php",{ID:$('#car-modify input[name=ID]').val(),make:$('#car-modify input[name=make]').val(),
 			model:$('#car-modify input[name=model]').val(),year:$('#car-modify input[name=year]').val(),miles:$('#car-modify input[name=miles]').val(),
-			price:$('#car-modify input[name=price]').val()}).done(function( data ) {
+			price:$('#car-modify input[name=price]').val(),state:$('#car-modify select[name=state]').val()}).done(function( data ) {
 				alert(" Data loaded: " + data);
 			});
 		});
@@ -35,8 +35,7 @@
 		$(document).on('submit', '#seller-modify', function(e){
 			e.preventDefault();
 			$.post("sellers/modify.php",{ID:$('#seller-modify input[name=ID]').val(),first_name:$('#seller-modify input[name=first_name]').val(),
-			last_name:$('#seller-modify input[name=last_name]').val(),email:$('#seller-modify input[name=email]').val(),
-			password:$('#seller-modify input[name=password]').val()}).done(function( data ) {
+			last_name:$('#seller-modify input[name=last_name]').val(),email:$('#seller-modify input[name=email]').val()}).done(function( data ) {
 				alert(" Data loaded: " + data);
 			});
 		});

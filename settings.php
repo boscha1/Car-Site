@@ -24,10 +24,10 @@ else {
 	$db = substr($url["path"], 1);
 	$user = $url["user"];
 	$pass = $url["pass"];
-	$base_URL = 'https://nku-car-site.herokuapp.com/';
+	$base_URL = 'https://nku-carsite.herokuapp.com/';
 	$host = 'us-cdbr-east-02.cleardb.com';
-	$user = 'b533c8afed0280';
-	$pass = 'f199a65e';
+	$user = 'b1e54e97eee6b1';
+	$pass = '585bed36';
 }
 
 session_start();

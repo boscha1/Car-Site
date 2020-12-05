@@ -15,7 +15,7 @@ require_once('theme/header.php');
 		  </div>
 		  <div class="form-group">
 			<label>Email</label>
-			<input type="text" class="form-control" name="email">
+			<input type="email" class="form-control" name="email">
 		  </div>
 		  <div class="form-group">
 			<label>Password</label>

@@ -34,7 +34,7 @@ require_once('../theme/header.php');
 		  </div>
 		  <div class="form-group">
 			<label>Price:</label>
-			$<?= $car['price'] ?>
+			$<?= $car['price'] ?>.00
 		  </div>
 		  <div class="form-group">
 			<label>Location:</label>

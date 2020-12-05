@@ -39,8 +39,29 @@ function signup() {
 
 	// if the result of the query has some rows --> meaning we have a user
 	// then the email is already registered
+	
+	$email = $_POST['email'];
+	
 	if ($result->rowCount()>0) 
 		die('The email address is already registered');
+	
+	
+	if (empty($_POST['first_name'])) {
+		die('Please enter first name');
+	}
+	elseif (empty($_POST['last_name'])) {
+		die('Please enter last name');
+	}
+	elseif (empty($_POST['email'])) {
+		die('Please enter email');
+	}
+	elseif (empty($_POST['password'])) {
+		die('Please enter password');
+	}
+	elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		die("$email is not a valid email address");
+	}
+	
 	else { // otherwise, insert and redirect the user
 		query($pdo, 'INSERT INTO users(first_name, last_name, email,password) VALUES(?,?,?,?)',[ucfirst($_POST['first_name']),ucfirst($_POST['last_name']),
 		$_POST['email'], password_hash($_POST['password'],PASSWORD_DEFAULT)]);

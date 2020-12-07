@@ -1,7 +1,7 @@
  #section1 { 
         float: left; 
         width: 100vw; 
-        height: 600px; 
+        height: 100vh; 
         padding: 20px;
         color: #FFF; 
         background-image: url('car_index_2.jpg');

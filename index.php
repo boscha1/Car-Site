@@ -19,7 +19,7 @@ users.first_name,users.last_name FROM cars JOIN users ON users.ID = cars.userID'
 
 require_once('theme/header.php');
 ?>		
-	  <div id="section1">
+	  <div class="img-fluid" id="section1">
 			<div style="height: 15%;"></div>
 					<div class="container">
 					  <p id="b" style="font-size: 36px;font-family: 'Permanent Marker', cursive;">Your dream car awaits...</p>

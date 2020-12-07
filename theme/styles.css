@@ -5,12 +5,7 @@
         background-image: url('car_index_2.jpg');
         background-repeat: no-repeat;
 		background-size:contain;
-background-position:center;
-    }
-    #section1 img {
-        height: 100%; 
-        width: cover; 
-        background-repeat: no-repeat;
+		background-position:center;
     }
 	#b { 
         font-family: 'Spartan', sans-serif; font-size: 50px;

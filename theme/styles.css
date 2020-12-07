@@ -1,10 +1,6 @@
-    #section1 { 
-        float: left;  
-        color: #FFF; 
+    #section1 {  
         background-image: url('car_index_2.jpg');
-        background-repeat: no-repeat;
-		background-size:contain;
-		background-position:center;
+        
     }
 	#b { 
         font-family: 'Spartan', sans-serif; font-size: 50px;

@@ -1,12 +1,11 @@
  #section1 { 
-        float: left; 
-        width: 100vw; 
-        height: 100vh; 
+        float: left;  
         padding: 20px;
         color: #FFF; 
         background-image: url('car_index_2.jpg');
-        background-repeat: no-repeat; 
-        background-size: cover;
+        background-repeat: no-repeat;
+		background-size:contain;
+background-position:center;
     }
     #section1 img {
         height: 100%; 
